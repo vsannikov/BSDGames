@@ -349,7 +349,7 @@ planewin()
 	wprintw(planes, "Time: %-4d Safe: %d", clck, safe_planes);
 	wmove(planes, 2, 0);
 
-	waddstr(planes, "pl dt  comm");
+	waddstr(planes, "pl dt  h  a  comm");
 	for (pp = air.head; pp != NULL; pp = pp->next) {
 		if (waddch(planes, '\n') == ERR) {
 			warning++;

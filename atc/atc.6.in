@@ -175,17 +175,22 @@ to be a command and is therefore not displayed.
 The following are some possible information lines:
 .Pp
 .Bd -literal -offset indent
-B4*A0: Circle @ b1
-g7 E4: 225
+pl dt  h  a  comm
+B4*A0 180 +: Circle @ b1
+g7 E4 270 =: 225
 .Ed
 .Pp
 The first example shows a prop plane named `B' that is flying at 4000 feet.
 It is low on fuel (note the `*').
-Its destination is Airport #0.
+Its destination is Airport #0. It is on a 180-degree course
+(Southward). The `+' in the "a" (altitude change) column means that
+the plane is climbing.
 The next command it expects to do is circle when it reaches Beacon #1.
-The second example shows a jet named `g' at 7000 feet, destined for
-Exit #4.
+The second example shows a jet named `g' at 7,000 feet, heading for
+Exit #4 and heading 270 degrees, i.e., west.
 It is just now executing a turn to 225 degrees (South-West).
+The `=' in the "a" column indicates maintaining altitude,
+the `-' would indicate descending.
 .Ss INPUT AREA
 The third area of the display is the input area.
 It is here that your input is reflected.

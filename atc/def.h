@@ -82,4 +82,4 @@
 #define S_IGNORED	4
 
 #define INPUT_LINES	3
-#define PLANE_COLS	20
+#define PLANE_COLS	26

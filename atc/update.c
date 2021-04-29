@@ -218,6 +218,18 @@ update(dummy)
 #endif
 }
 
+
+static char
+alt_change(int change)
+{
+	if (change > 0)
+		return '+';
+	else if (change < 0)
+		return '-';
+	else /* change == 0 */
+		return '=';
+}
+
 const char *
 command(pp)
 	const PLANE	*pp;
@@ -226,9 +238,11 @@ command(pp)
 
 	buf[0] = '\0';
 	bp = buf;
-	(void)sprintf(bp, "%c%d%c%c%d: ", name(pp), pp->altitude, 
+	(void)sprintf(bp, "%c%d%c%c%d %3d %c: ", name(pp), pp->altitude,
 		(pp->fuel < LOWFUEL) ? '*' : ' ',
-		(pp->dest_type == T_AIRPORT) ? 'A' : 'E', pp->dest_no);
+		(pp->dest_type == T_AIRPORT) ? 'A' : 'E', pp->dest_no,
+		dir_deg(pp->dir),
+		alt_change(pp->new_altitude - pp->altitude));
 
 	comm_start = bp = strchr(buf, '\0');
 	if (pp->altitude == 0)
